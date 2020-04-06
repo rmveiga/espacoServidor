@@ -4,3 +4,11 @@ funcoes = {
     'total': lambda lista: f'{(sum([usuario["espaco"] for usuario in lista]) / 1024) / 1024:.2f} MB',
     'media': lambda lista: f'{((sum([usuario["espaco"] for usuario in lista]) / 1024) / 1024) / len(lista):.2f} MB'
 }
+
+
+def isint(numero):
+    try:
+        int(numero)
+    except ValueError:
+        return False
+    return True

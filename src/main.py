@@ -2,7 +2,12 @@ from src.txt import *
 from src.controle import *
 from src.html import *
 
-lista = carregar_txt('usuarios')
+opcao = str(input('Informe quantos registros gostaria de carregar: ')).strip()
+while not isint(opcao):
+    print('Opção inválida!')
+    opcao = str(input('Informe quantos registros gostaria de carregar: ')).strip()
+
+lista = carregar_txt('usuarios', opcao)
 relatorio(lista)
 
 opcao = str(input('Gostaria de exportar o relatório para HTML? [S/N] ')).strip().upper()[0]

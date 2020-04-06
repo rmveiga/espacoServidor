@@ -1,4 +1,4 @@
-def carregar_txt(arquivo):
+def carregar_txt(arquivo, registros):
     try:
         usuario = dict()
         lista = list()
@@ -12,6 +12,12 @@ def carregar_txt(arquivo):
             lista.append(usuario.copy())
             usuario.clear()
 
+            if cont == int(registros):
+                break
+            else:
+                cont += 1
+
+        cont = 1
         lista.sort(key=lambda i: i['espaco'], reverse=True)
         for pessoa in lista:
             pessoa['id'] = cont
