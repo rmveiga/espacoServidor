@@ -6,11 +6,15 @@ def carregar_txt(arquivo):
 
         txt = open(arquivo + '.txt', 'r')
         for pessoa in txt.readlines():
-            usuario['id'] = cont
+            usuario['id'] = 1
             usuario['nome'] = pessoa.split()[0]
             usuario['espaco'] = int(pessoa.split()[1])
             lista.append(usuario.copy())
             usuario.clear()
+
+        lista.sort(key=lambda i: i['espaco'], reverse=True)
+        for pessoa in lista:
+            pessoa['id'] = cont
             cont += 1
 
         txt.close()
